@@ -27,6 +27,7 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       padding-top:70px; /* space for sticky nav */
+      overflow-x: hidden;
     }
 
     a{color:inherit;text-decoration:none}
@@ -66,7 +67,7 @@
       left:0;
       right:0;
       background:var(--bg);
-      border-bottom:1px solid var(--divider);
+      border-bottom:none;
       z-index:900;
       height:70px;
       display:flex;
@@ -108,7 +109,7 @@
     /* Hero */
     .hero{
       padding:40px 0;
-      border-bottom:1px solid var(--divider);
+      border-bottom: none;
     }
     .hero-grid{
       display:grid;
@@ -146,7 +147,7 @@
     /* Sections */
     section.catalog-section{
       padding:28px 0;
-      border-bottom:1px solid var(--divider);
+      border-bottom:none;
     }
     .section-header{
       display:flex;
@@ -180,8 +181,8 @@
       min-height:120px;
     }
     .graphic{
-      min-width:160px;
-      min-height:100px;
+      max-width:200px;
+      max-height:200px;
       border:1px dashed var(--divider);
       display:flex;
       align-items:center;
@@ -189,6 +190,11 @@
       color:var(--muted);
       font-size:13px;
       flex-shrink:0;
+    }
+    .graphic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;   
     }
     .card-body{
       flex:1;
@@ -282,7 +288,9 @@
         </div>
 
         <div class="hero-right" aria-hidden="true">
-          <div class="logo-placeholder">graphic</div>
+          <div class="logo-placeholder">
+            <img src="Zrzut ekranu 2025-11-13 172837.png">
+          </div>
           <div style="font-size:13px;color:var(--muted);text-align:right;">
             Simple, responsive HTML template based on your PDF.
           </div>
@@ -302,7 +310,9 @@
       <div class="cards" role="list">
         <!-- Card 1 -->
         <article class="card" role="listitem" aria-labelledby="entry-gnx-1">
-          <div class="graphic" aria-hidden="true">graphic</div>
+          <div class="graphic" aria-hidden="true">
+            <img src="Zrzut ekranu 2025-11-13 175443.png">
+          </div>
           <div class="card-body">
             <h4 id="entry-gnx-1">Research institution: GNX Innovations</h4>
             <div class="meta">Year: 2018 • Author(s): GNX Innovations • Country of origin: Denmark</div>
@@ -313,7 +323,9 @@
 
         <!-- Card 2 (repeat / example) -->
         <article class="card" role="listitem" aria-labelledby="entry-gnx-2">
-          <div class="graphic" aria-hidden="true">graphic</div>
+          <div class="graphic" aria-hidden="true">
+            <img src="Zrzut ekranu 2025-11-13 180252.png">
+          </div>
           <div class="card-body">
             <h4 id="entry-gnx-2">Research institution: GNX Innovations</h4>
             <div class="meta">Year: 2018 • Author(s): GNX Innovations • Country of origin: Denmark</div>
@@ -335,7 +347,8 @@
 
       <div class="cards">
         <article class="card">
-          <div class="graphic">graphic</div>
+          <div class="graphic">graphic</div>">
+          </div>
           <div class="card-body">
             <h4>Example Entry — Sichuan University</h4>
             <div class="meta">Location: Chengdu, China • Institution: Sichuan University</div>
