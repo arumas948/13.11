@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Beam to Column — DfD Catalog</title>
+
+<!-- model-viewer (for .glb) -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<style>
+  :root{
+    --text: #222222;
+    --muted: #666666;
+    --background: #ffffff;
+    --accent: #005bbb;
+    --accent-light: #e6f0ff;
+    --divider: #e0e0e0;
+    --gap: 20px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  html,body{height:100%;margin:0}
+  body{
+    background:var(--background);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* top nav (sticky) */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: white;
+    border-bottom: 1px solid var(--divider);
+  }
+  .nav-inner{
+    max-width:1200px;
+    margin:0 auto;
+    font-weight: 600;
+    padding:10px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+  .nav-inner .brand{font-weight:700}
+  .nav-inner nav{display:flex;gap:12px}
+  /* menu links: no underline on hover for menu only */
+  .nav-inner nav a{color:var(--text);text-decoration:none;padding:6px 10px;border-radius:6px}
+  .nav-inner nav a:hover{background:var(--accent-light);text-decoration:none}
+
+  .nav-title {
+    font-size: 1.8rem;     /* makes it larger */
+    font-weight: 500;      /* thick, bold */
+    justify-content: left;    /* pushes other links to the right */
+    color: rgb(45, 45, 45,);          /* change if needed */
+}
+
+
+  /* page container for this layout */
+  .page{
+    max-width:1400px;
+    margin:28px auto;
+    padding:0 20px;
+  }
+
+  /* two-column layout: left 2fr, right 1fr */
+  .layout {
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap:var(--gap);
+    align-items:start;
+    min-height:60vh;
+  }
+
+  /* left column content */
+  .content-left{
+    padding: 12px;
+  }
+  .content-left h1{
+    font-size:2.4rem;
+    margin:0 0 12px 0;
+  }
+  .lead{
+    color:var(--muted);
+    font-size:1.05rem;
+    margin-bottom:18px;
+  }
+
+  .info-list{
+    background:#fff;
+    border:1px solid var(--divider);
+    padding:16px;
+    border-radius:8px;
+  }
+  .info-list h3{margin:0 0 8px 0;font-size:1.05rem}
+  .info-list ul{margin:8px 0 0 18px;color:var(--text)}
+  .info-list ul li{margin:6px 0}
+
+  /* right column: 3D viewer */
+  .viewer-wrap{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:stretch;
+  }
+  model-viewer{
+    width:100%;
+    height:60vh;
+    background:#f3f3f3;
+    border-radius:8px;
+    border:1px solid var(--divider);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
+  .viewer-caption{
+    font-size:0.95rem;
+    color:var(--muted);
+  }
+
+  /* responsive */
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;gap:20px}
+    model-viewer{height:45vh}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav" role="banner">
+  <div class="nav-inner">
+    <div class="nav-title"><a href="index.html" style="text-decoration:none;color:inherit">Design for Disassembly Catalog</a></div>
+    <nav aria-label="Main menu">
+      <a href="index.html">Home</a>
+      <a href="beam-to-column.html" aria-current="page">Beam to Column</a>
+      <a href="wall-to-slab.html">Wall to Slab</a>
+      <a href="systems.html">Systems</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page" role="main">
+  <div class="layout">
+    <!-- LEFT: title, description, list -->
+    <div class="content-left">
+      <h1>Beam to Column</h1>
+
+      <p class="lead">
+        Short description: typical beam-to-column connections and examples focused on disassemblability, detailing elements,
+        durability aspects and tools required for assembly/disassembly.
+      </p>
+
+      <div class="info-list" aria-labelledby="moreinfo-title">
+        <h3 id="moreinfo-title">More information:</h3>
+        <ul>
+          <li><strong>Elements:</strong> beams, columns, fasteners, brackets</li>
+          <li><strong>Durability (seismic performance):</strong> design-dependent, tested up to X level</li>
+          <li><strong>Tools required for assembly + effort (time and labor):</strong> torque wrench, 2 people, ca. 2 hours</li>
+          <li><strong>Tools required for disassembly + effort (time and labor):</strong> socket set, 2 people, ca. 1.5 hours</li>
+          <li><strong>Year of first construction/experiment:</strong> 2018</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT: 3D model viewer -->
+    <aside class="viewer-wrap" aria-label="3D model">
+      <!-- model-viewer: replace "blender.glb" with your real file -->
+      <model-viewer src="koreancolumnblend1.glb"
+                    alt="3D model of beam-to-column"
+                    poster="poster.jpg"
+                    camera-controls
+                    auto-rotate
+                    exposure="1"
+                    ar
+                    shadow-intensity="1">
+      </model-viewer>
+
+      <div class="viewer-caption">
+        Interactive 3D model (.glb). Use mouse / touch to rotate and zoom. File name: <code>blender.glb</code>
+      </div>
+    </aside>
+  </div>
+</main>
+
+</body>
+</html>
